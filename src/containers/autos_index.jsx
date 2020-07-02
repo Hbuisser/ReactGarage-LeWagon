@@ -11,7 +11,6 @@ class AutosIndex extends Component {
     this.props.fetchAutos(this.props.garage);
   }
 
-  
   render() {
     return (
       <div>
