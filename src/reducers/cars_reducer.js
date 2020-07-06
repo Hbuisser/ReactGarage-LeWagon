@@ -1,9 +1,11 @@
-import { FETCH_AUTOS } from '../actions';
+import { FETCH_CARS, CAR_CREATED } from '../actions';
 
 export default function(state = null, action) {
   switch (action.type) {
-    case FETCH_AUTOS:
+    case FETCH_CARS:
       return action.payload;
+    case CAR_CREATED:
+    	return action.payload;
     default:
       return state;
   }

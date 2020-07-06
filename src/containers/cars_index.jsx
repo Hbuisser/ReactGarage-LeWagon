@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import Car from '../components/car';
 import cars from '../cars';
-import { fetchAutos } from '../actions';
+import { fetchCars } from '../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 
-class AutosIndex extends Component {
+class CarsIndex extends Component {
   componentWillMount() {
-    this.props.fetchAutos(this.props.garage);
+    this.props.fetchCars(this.props.garage);
   }
 
   render() {
     return (
       <div>
         {
-          this.props.cars.map((car) => {
+          cars.map((car) => {
             return <Car car={car} key={car.id}/>
           })
         }
@@ -26,7 +26,7 @@ class AutosIndex extends Component {
 
 function DispatchToProps(dispatch) {
   return bindActionCreators(
-    { fetchAutos },
+    { fetchCars },
     dispatch
   );
 }
@@ -38,4 +38,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, DispatchToProps)(AutosIndex);
+export default connect(mapStateToProps, DispatchToProps)(CarsIndex);

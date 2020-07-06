@@ -10,11 +10,12 @@ import { createHistory as history } from 'history';
 // importing css
 import '../assets/stylesheets/application.scss';
 
-import AutosIndex from './containers/autos_index';
+import CarsIndex from './containers/cars_index';
+import CarsNew from './containers/cars_new';
 import carsReducer from './reducers/cars_reducer';
 
 // importing form
-//import { reducer as formReducer } from 'redux-form';
+import { reducer as formReducer } from 'redux-form';
 
 //const garageName = prompt("What is your garage?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
 const garageName = 'GarageGustin';
@@ -39,7 +40,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={AutosIndex} />
+        <Route path="/" exact component={CarsIndex} />
+        <Route path="/cars/new" exact component={CarsNew} />
       </Switch>
     </Router>
   </Provider>,

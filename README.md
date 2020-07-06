@@ -14,6 +14,6 @@ Simple React + Router + Redux starter with the following config:
 ⚠️This can't be deployed on GitHub Pages, it needs a Node.js setup for the back-end as the paths need to be dynamically linked back to `index.html`.
 
  - yarn add node-sass
- - yarn add redux-form
+ - yarn add redux-form@7.2.0
  - yarn install
  - yarn start --disable-host-check
