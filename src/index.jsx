@@ -18,8 +18,6 @@ import carsReducer from './reducers/cars_reducer';
 
 //const garageName = prompt("What is your garage?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
 const garageName = 'GarageGustin';
-const identityReducer = (state = null) => state;
-
 
 const initialState = {
   garage: garageName,
@@ -27,7 +25,7 @@ const initialState = {
 };
 
 const reducers = combineReducers({
-  garage: identityReducer,
+  garage: (state = null, action) => state,
   cars: carsReducer
 });
 

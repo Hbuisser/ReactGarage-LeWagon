@@ -15,7 +15,7 @@ class AutosIndex extends Component {
     return (
       <div>
         {
-          cars.map((car) => {
+          this.props.cars.map((car) => {
             return <Car car={car} key={car.id}/>
           })
         }
@@ -32,7 +32,10 @@ function DispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
- return { garage: state.garage };
+  return { 
+    garage: state.garage,
+    cars: state.cars
+  };
 }
 
 export default connect(mapStateToProps, DispatchToProps)(AutosIndex);
