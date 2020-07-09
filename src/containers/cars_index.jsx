@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Car from '../components/car';
-import cars from '../cars';
+//import cars from '../cars';
 import { fetchCars } from '../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
