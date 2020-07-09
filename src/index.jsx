@@ -17,6 +17,7 @@ import carsReducer from './reducers/cars_reducer';
 // importing form
 import { reducer as formReducer } from 'redux-form';
 
+const middlewares = applyMiddleware(reduxPromise, logger);
 //const garageName = prompt("What is your garage?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
 const garageName = 'GarageGustin';
 
@@ -33,16 +34,16 @@ const reducers = combineReducers({
 const store = createStore(reducers, initialState, middlewares);
 
 
-const middlewares = applyMiddleware(reduxPromise, logger);
-
 // render an instance of the component in the DOM
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Switch>
-        <Route path="/" exact component={CarsIndex} />
-        <Route path="/cars/new" exact component={CarsNew} />
-      </Switch>
+      <div className="view-container">
+        <Switch>
+          <Route path="/" exact component={CarsIndex} />
+          <Route path="/cars/new" exact component={CarsNew} />
+        </Switch>
+      </div>
     </Router>
   </Provider>,
   document.getElementById('root')

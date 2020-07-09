@@ -47,7 +47,7 @@ class CarsNew extends Component {
 
 function mapStateToProps(state) {
   return { 
-    garage: state.garage,
+    garage: state.garage
   };
 }
 
