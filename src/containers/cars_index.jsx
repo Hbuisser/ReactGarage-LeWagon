@@ -13,20 +13,7 @@ class CarsIndex extends Component {
     this.props.fetchCars(this.props.garage);
   }
 
-  renderCars() {
-    return this.props.cars.map((car) => {
-      //return <Car car={car} key={car.id}/>
-      return (
-        <Link to={`/cars/${car.id}`} key={car.id}>
-          <div className="post-item">
-            <h3>{car.brand}</h3>
-          </div>
-        </Link>
-      );
-    })
-  }
-
-  render() {
+  render () {
     if (this.props.cars.length === 0) {
       return [
         <Aside key="aside" garage={this.props.garage}>
@@ -35,7 +22,7 @@ class CarsIndex extends Component {
         <div className="no-car" key="nocar">No car yet</div>
       ];
     }
-    return (
+    return [
       <Aside key="aside" garage={this.props.garage}>
         <Link to="/cars/new">Add a car</Link>
       </Aside>,
@@ -55,9 +42,9 @@ class CarsIndex extends Component {
           );
         })}
       </div>
-    )
+    ];
   }
-}
+};
 
 function DispatchToProps(dispatch) {
   return bindActionCreators(
@@ -74,3 +61,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, DispatchToProps)(CarsIndex);
+
+
+

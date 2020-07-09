@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { reduxForm, Field } from 'redux-form';
-import { createCar } from '../actions';
-import Aside from '../components/aside';
+import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 
+import Aside from '../components/aside';
+import { createCar } from '../actions';
 
 class CarsNew extends Component {
-	onSubmit = (values) => {
+  onSubmit = (values) => {
     this.props.createCar(this.props.garage, values, () => {
       this.props.history.push('/');
     });
@@ -42,15 +42,16 @@ class CarsNew extends Component {
       </div>
     ];
   }
-}
-
+};
 
 function mapStateToProps(state) {
-  return { 
+  return {
     garage: state.garage
   };
 }
 
-export default reduxForm({ form: 'newCarForm' })(
+export default reduxForm({
+  form: 'newCarForm' // a unique identifier
+})(
   connect(mapStateToProps, { createCar })(CarsNew)
 );

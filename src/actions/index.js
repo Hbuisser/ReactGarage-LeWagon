@@ -24,7 +24,7 @@ export function createCar(body, callback, garage) {
     body: JSON.stringify(body)
   })
     .then(response => response.json())
-    .then(() => callback());
+    .then(callback);
   return {
     type: CAR_CREATED,
     payload: request
