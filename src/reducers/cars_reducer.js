@@ -5,7 +5,7 @@ export default function(state = null, action) {
     case FETCH_CARS:
       return action.payload;
     // case CAR_CREATED:
-    // 	return action.payload;
+    //   return action.payload;
     default:
       return state;
   }

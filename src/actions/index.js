@@ -13,7 +13,7 @@ export function fetchCars(garage) {
   }
 }
 
-export function createCar(body, callback, garage) {
+export function createCar(garage, car, callback) {
 	const url = `${BASE_URL}/${garage}/cars`;
   const request = fetch(url, {
     method: 'POST',
@@ -21,10 +21,10 @@ export function createCar(body, callback, garage) {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(car)
   })
     .then(response => response.json())
-    .then(callback);
+    .then(() => callback());
   return {
     type: CAR_CREATED,
     payload: request
